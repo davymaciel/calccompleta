@@ -3,19 +3,94 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgba(128, 128, 128, 0.39);
+  background-color: rgba(0, 0, 0, 0.39);
   border-radius: 5PX;
 }
 
 body {
-  background-image: url(https://img.freepik.com/vetores-premium/conceito-de-saude-e-tecnologia-abstrato-moderno-com-simbolo-medico-e-padrao-hexagonal_236657-1688.jpg);
+  background-image: url(https://img.freepik.com/vetores-gratis/limpar-historico-medico_53876-97927.jpg);
   background-size: cover;
   background-position: center;
   color: white;
 }
 
-input{
+input[type="number"] {
   font-size: 15px;
-  padding: 5px;
+  width: 25%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+button {
+  background-color: #66cc99;
+  color: white;
+  padding: 10px 20px;
+  border: none;
   border-radius: 5px;
-} 
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #55aa88;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.radio-group label {
+  margin: 0 15px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #66cc99;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + label:before {
+  background-color: #66cc99;
+  border-color: #66cc99;
+}
+
+.radio-group label:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + label:after {
+  opacity: 1;
+  background-color: white;
+}
+

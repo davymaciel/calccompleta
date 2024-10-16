@@ -5,7 +5,7 @@ const IMC = () => {
   const [altura, setAltura] = useState('');
   const [resultado, setResultado] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [sexo, setSexo] = useState(''); // Novo estado para o sexo
+  const [sexo, setSexo] = useState('');
 
   const CalcIMC = () => {
     const alturaM = altura / 100;
@@ -13,8 +13,7 @@ const IMC = () => {
     setResultado(calcIMC);
 
     let msg = '';
-    
-    // Faixas de IMC podem variar dependendo do sexo
+
     if (sexo === 'masculino') {
       if (calcIMC < 18.5) {
         msg = 'Abaixo do peso';
@@ -24,7 +23,7 @@ const IMC = () => {
 
       } else if (calcIMC >= 25 && calcIMC < 29.9) {
         msg = 'Sobrepeso';
-        
+
       } else {
         msg = 'Obesidade';
       }
@@ -58,39 +57,46 @@ const IMC = () => {
         type="number"
         value={peso}
         onChange={(e) => setPeso(e.target.value)}
-        placeholder="Peso (Kg)"
+        placeholder="Peso (Quilos)"
       />
       <br></br>
-      
+
       <input
         type="number"
         value={altura}
         onChange={(e) => setAltura(e.target.value)}
-        placeholder="Altura (cm)"
+        placeholder="Altura (Metros)"
       />
       <br></br>
 
-      {/* Inputs para selecionar o sexo */}
       <div>
         <label>Gênero:</label>
         <br></br>
-        <input
-          type="radio"
-          value="masculino"
-          checked={sexo === 'masculino'}
-          onChange={(e) => setSexo(e.target.value)}
-        /> Masculino
-        <br></br>
-        <input
-          type="radio"
-          value="feminino"
-          checked={sexo === 'feminino'}
-          onChange={(e) => setSexo(e.target.value)}
-        /> Feminino
+
+        <div className='radio-group'>
+          <input
+            type="radio"
+            value="masculino"
+            checked={sexo === 'masculino'}
+            onChange={(e) => setSexo(e.target.value)}
+            id="masculino"
+          />
+          <label htmlFor="masculino">Masculino</label>
+
+          <input
+            type="radio"
+            value="feminino"
+            checked={sexo === 'feminino'}
+            onChange={(e) => setSexo(e.target.value)}
+            id="feminino"
+          />
+          <label htmlFor="feminino">Feminino</label>
+        </div>
       </div>
       <br></br>
 
       <button onClick={CalcIMC}>Calcular IMC</button>
+      <br></br>
 
       {resultado && (
         <div>
@@ -98,10 +104,11 @@ const IMC = () => {
           <p>{mensagem}</p>
         </div>
       )}
-      <img 
-                src='./tabela.png' 
-                alt="Tabela de IMC"
-                style={{ marginTop: '20px', width: '80%', maxWidth: '600px' }} 
+
+      <img
+        src='https://viverbem.unimedbh.com.br/wp-content/uploads/2021/06/tabela-IMC.png'
+        alt="Tabela de IMC"
+        style={{ marginTop: '20px', width: '80%', maxWidth: '600px' }}
       />
     </div>
   );
